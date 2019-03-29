@@ -110,7 +110,7 @@ program main
   call step_size(n_real, time_cond, sml, cs, dt)
 
   !Do a large number of times, i.e. much longer than the maximum time would correspond to.
-   do i = 0,50000
+   do i = 0,5000
 
      ! use our time stepping scheme
     call leap_frog_integrator(n_real, n_ghosts, n_bound, t, dt, pos, vel, a, mass, rho, sml, gamma, p, cs, u, du)
@@ -133,6 +133,5 @@ program main
     end if
   end do
 
-  close(0)
 
 end program main

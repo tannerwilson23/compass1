@@ -30,7 +30,6 @@ module deriven
       enddo
 
 
-
       !no tricks, finding p from eos and then using that to find the accel.
       call equation_of_state(n_real, rho, gamma, p, cs, u)
       call set_ghosts(n_real, n_ghosts, n_bound, pos, vel, a, mass, rho, sml, p, cs, u, du)

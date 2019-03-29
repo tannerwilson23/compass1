@@ -52,8 +52,8 @@ contains
     a(n_real+n_ghosts/2+1:n_real+n_ghosts) = a(n_real-n_ghosts/2+1:n_real)
     du(n_real+n_ghosts/2+1:n_real+n_ghosts) = du(n_real-n_ghosts/2+1:n_real)
 
-    !set the boundary conditions in the sod shock tube problem, could do this in another
-    !subroutines though I feel like I would call it as much as set_ghosts
+    !set the boundary conditions in the sod shock tube problem, needs to be called a similar amount of
+    !times to set ghosts so might as well put it there.
     if (n_bound /= 0) then
       vel(1:n_bound) = 0.
       vel(n_real-n_bound:n_real) = 0.

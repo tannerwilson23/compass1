@@ -9,8 +9,8 @@ contains
       implicit none
       real, intent(in) :: csa, vab, rab
       real :: a, b
-      a = 0
-      b = 0
+      a = 1.
+      b = 2.
 
       vsig = a*csa - b*(vab*rab)
 

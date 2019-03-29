@@ -21,8 +21,6 @@ contains
     a_0(:) = a(:)
     du_0(:) = du(:)
 
-    !probably call set_ghosts too many times.
-
     !Leap frog scheme according to q8 for velocity and internal energy, no pos equivalent so don't need to update.
     pos(:) = pos(:) + dt*vel(:) + 0.5*(dt)**(2)*a(:)
     call set_ghosts(n_real, n_ghosts, n_bound, pos, vel, a, mass, rho, sml, p, cs, u, du)
