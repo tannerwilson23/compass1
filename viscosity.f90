@@ -1,24 +1,32 @@
 module viscosity
   implicit none
+  public :: vsig, q
 
-  contains
+  !artifical viscosity calculations according to (8) and (9) in q12.
 
-    function vsig(csa, vab, rab)
+contains
+    real function vsig(csa, vab, rab)
+      implicit none
       real, intent(in) :: csa, vab, rab
       real :: a, b
-      real, intent(out) :: vsig
+      a = 0
+      b = 0
 
-      vsig = a*csa - b(vab*rab)
+      vsig = a*csa - b*(vab*rab)
 
-      return vsig
+    end function vsig
 
-    function q(rhoa, vsiga, vab, rab)
+    real function q(rhoa, vsiga, vab, rab)
+      implicit none
       real, intent(in) :: rhoa, vsiga, vab, rab
-      real, intent(out) :: q
 
       if (vab * rab < 0) then
         q = -0.5*rhoa*vsiga*vab*rab
       else
         q = 0.
-      
-      return q
+      end if
+
+
+    end function q
+
+end module viscosity

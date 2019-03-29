@@ -8,8 +8,11 @@ contains
     real, intent(in) :: q
     real :: w_val, w_grad, sigma
 
+    !normalisation
     sigma = (2./3.)
 
+
+    !peicewise implementation of the spline kernal from Price, D., 2010
     if (q < 1) then
       w_val = (1./4.)*(2-q)**(3) - (1-q)**(3)
       w_grad = 3.*(1-q)**(2) - (3./4.)*(2-q)**(2)

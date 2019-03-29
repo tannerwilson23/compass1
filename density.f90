@@ -13,13 +13,13 @@ contains
     real :: q, w_val, w_grad
     integer :: i,j
 
+    !update the density according to the cubic spline and equation (1)
 
     rho(:) = 0
 
     do i = 1,n_real
       do j = 1,n_real+n_ghosts
         q = abs(pos(j) - pos(i))/sml(i)
-        
         call w(q, w_val, w_grad)
         rho(i) = rho(i) + mass(j)*w_val/sml(i)
       enddo
